@@ -1,5 +1,7 @@
 import { useState } from "react"
 import ListItem from "./Components/ListItem";
+import NewItemButton from "./Components/NewItemButton";
+import ClearListButton from "./Components/CleanListButton";
 function App() {
     const [listItems, setListItems] = useState([
       {
@@ -40,37 +42,22 @@ function App() {
         return item;
       })
 
-      setListItems (newList);
+      setListItems(newList);
     }
-
-
-      // if (itemChecked[e.target.name]) {
-      //   setItemChecked({
-      //     ...itemChecked,
-      //     [e.target.name]: false,
-      //   });
-      // } else {
-      //   setItemChecked({
-      //     ...itemChecked,
-      //     [e.target.name]: true,
-      //   });
-      // }
-      //setListItems({
-      //  ...listItems,
-      //  [e.target.name]: !listItems[e.target.name]
-      //})
     
   return (
   <div className="container text-center">
       <div className="row">
-        <div className="col">
+        <div className="col text-start">
           <h1>Shopping List</h1>
           <hr />
         </div>
-        <div className="col text-end">
-          <button type="button" className="btn btn-outline-primary">
-            <i className="bi bi-plus-circle"></i>
-          </button>
+        <div className="col text-end mt-2">
+        <ClearListButton setListItems={setListItems}/>
+          <NewItemButton
+          listItems= {listItems}
+          setListItems={setListItems}
+          />
         </div>
       </div>
       
@@ -87,9 +74,16 @@ function App() {
           />
         ))
       }
-     
-     
-
+      <hr />
+      <div className="row">
+        <div className="col text-end">
+          <ClearListButton setListItems={setListItems}/>
+          <NewItemButton
+          listItems={listItems}
+          setListItems={setListItems}
+          />
+        </div>
+      </div>
     </div>
   )
 }

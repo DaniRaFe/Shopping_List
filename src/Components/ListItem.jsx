@@ -1,4 +1,4 @@
-const ListItems = ({
+const ListItem = ({
     id,
     name,
     quantity,
@@ -45,4 +45,4 @@ const ListItems = ({
     )
 }
 
-export default  ListItems;
+export default  ListItem;
